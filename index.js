@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-console.log('Server is starting...');
+console.log('Server is starting... hello');
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });

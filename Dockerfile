@@ -1,4 +1,4 @@
-FROM node:22-alpine As build
+FROM node:22-alpine As builder
 
 WORKDIR /app
 
@@ -9,10 +9,9 @@ COPY . .
 
 RUN npm run build
 
-
 FROM node:22-alpine
 
-COPY --from=build /app .
+COPY --from=builder /app .
 
 EXPOSE 5050
 

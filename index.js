@@ -9,7 +9,6 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 console.log('Basic route set up...');
-console.log('Setting up routes...');
 app.post('/add', (req, res) => {
     const { a, b } = req.body;
 

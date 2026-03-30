@@ -6,7 +6,7 @@ app.use(express.json());
 console.log('Server is starting...');
 console
 app.get('/', (req, res) => {
-    res.send('Hello World! Welcome to the DevOps backend server.');
+    res.send('Hello World!');
 });
 console.log('Basic route set up...');
 app.post('/add', (req, res) => {

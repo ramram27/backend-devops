@@ -1,4 +1,4 @@
-name: Docker CI
+name: Docker Image CI
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
 
     # ✅ Only runs if tests pass
     - name: Build Docker Image
-      run: docker build -t ramram27/aws-app:latest .
+      run: docker build -t ramram27/backend-devops:latest .
 
     - name: Login to DockerHub
       uses: docker/login-action@v2
@@ -27,4 +27,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push Docker Image
-      run: docker push ramram27/aws-app:latest
+      run: docker push ramram27/backend-devops:latest

@@ -7,6 +7,7 @@ app.use(express.json());
 
 console.log('Express app initialized');
 // Health check
+console.log('Setting up basic route...');
 app.get('/', (req, res) => {
     res.send('Hello World!, Hi');
 });

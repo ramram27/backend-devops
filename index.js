@@ -11,48 +11,6 @@ app.get('/', (req, res) => {
     res.send('Hello World!, Welcome to the DevOps Backend Server, This is a simple Express application for testing purposes.');
 });
 
-// POST /data (existing)
-app.post('/data', (req, res) => {
-    const data = req.body;
-    res.json({ message: 'Data received successfully!', data });
-});
-
-// ➕ ADD API
-app.post('/add', (req, res) => {
-    const { a, b } = req.body;
-
-    if (typeof a !== 'number' || typeof b !== 'number') {
-        return res.status(400).json({ error: 'Invalid input' });
-    }
-
-    res.json({ result: a + b });
-});
-
-// ✖️ MULTIPLY API
-app.post('/multiply', (req, res) => {
-    const { a, b } = req.body;
-
-    if (typeof a !== 'number' || typeof b !== 'number') {
-        return res.status(400).json({ error: 'Invalid input' });
-    }
-
-    res.json({ result: a * b });
-});
-
-// ➗ DIVIDE API
-app.post('/divide', (req, res) => {
-    const { a, b } = req.body;
-
-    if (typeof a !== 'number' || typeof b !== 'number') {
-        return res.status(400).json({ error: 'Invalid input' });
-    }
-
-    if (b === 0) {
-        return res.status(400).json({ error: 'Cannot divide by zero' });
-    }
-
-    res.json({ result: a / b });
-});
 
 module.exports = app;
 

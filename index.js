@@ -8,7 +8,7 @@ app.use(express.json());
 console.log('Express app initialized');
 // Health check
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Hello World!, Hi');
 });
 
 

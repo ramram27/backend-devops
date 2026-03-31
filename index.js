@@ -8,7 +8,7 @@ app.use(express.json());
 console.log('Express app initialized');
 // Health check
 app.get('/', (req, res) => {
-    res.send('Hello World!, Welcome to the DevOps Backend Server, This is a simple Express application for testing purposes.');
+    res.send('Hello World!');
 });
 
 

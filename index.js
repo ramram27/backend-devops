@@ -1,14 +1,23 @@
 const express = require('express');
 const app = express();
+
 const port = 3000;
 
 app.use(express.json());
-console.log('Server is starting... ');
-console
+
+console.log('Express app initialized');
+// Health check
 app.get('/', (req, res) => {
-    res.send('Hello World!, Welcome to the DevOps Backend Server');
+    res.send('Hello World!, Welcome to the DevOps Backend Server, This is a simple Express application for testing purposes.');
 });
-console.log('Basic route set up...');
+
+// POST /data (existing)
+app.post('/data', (req, res) => {
+    const data = req.body;
+    res.json({ message: 'Data received successfully!', data });
+});
+
+// ➕ ADD API
 app.post('/add', (req, res) => {
     const { a, b } = req.body;
 
@@ -19,14 +28,71 @@ app.post('/add', (req, res) => {
     res.json({ result: a + b });
 });
 
-app.post('/data', (req, res) => {
-    const data = req.body;
-    console.log('Received data:', data);
-    res.send('Data received successfully!');
+// ✖️ MULTIPLY API
+app.post('/multiply', (req, res) => {
+    const { a, b } = req.body;
+
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        return res.status(400).json({ error: 'Invalid input' });
+    }
+
+    res.json({ result: a * b });
 });
 
-if(process.env.NODE_ENV !== 'test') {
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+// ➗ DIVIDE API
+app.post('/divide', (req, res) => {
+    const { a, b } = req.body;
+
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        return res.status(400).json({ error: 'Invalid input' });
+    }
+
+    if (b === 0) {
+        return res.status(400).json({ error: 'Cannot divide by zero' });
+    }
+
+    res.json({ result: a / b });
 });
+
+module.exports = app;
+
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(port, () => {
+        console.log(`Server is running on http://localhost:${port}`);
+    });
 }
+
+
+
+// const express = require('express');
+// const app = express();
+// const port = 3000;
+
+// app.use(express.json());
+// console.log('Server is starting... ');
+// console
+// app.get('/', (req, res) => {
+//     res.send('Hello World!, Welcome to the DevOps Backend Server');
+// });
+// console.log('Basic route set up...');
+// app.post('/add', (req, res) => {
+//     const { a, b } = req.body;
+
+//     if (typeof a !== 'number' || typeof b !== 'number') {
+//         return res.status(400).json({ error: 'Invalid input' });
+//     }
+
+//     res.json({ result: a + b });
+// });
+
+// app.post('/data', (req, res) => {
+//     const data = req.body;
+//     console.log('Received data:', data);
+//     res.send('Data received successfully!');
+// });
+
+// if(process.env.NODE_ENV !== 'test') {
+// app.listen(port, () => {
+//     console.log(`Server is running on http://localhost:${port}`);
+// });
+// }

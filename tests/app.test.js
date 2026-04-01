@@ -23,6 +23,15 @@ describe('Math API Tests', () => {
     expect(res.body.data).toEqual({name:"Rohit",rollNum:123,emailId:"rohit@gmail.com",passwrd:"12345"})
 
    })
+
+   test('POST /multiply should return product of two numbers', async() => {
+    const res = await request(app).post('/multiply')
+    .send({num1:10,num2:12})
+    expect(res.statusCode).toBe(200);
+    expect(res.body.result).toBe(120)
+   })
+
+
    
 });
 

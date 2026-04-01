@@ -6,7 +6,7 @@ describe('Math API Tests', () => {
    test('GET/should test msg', async() => { 
      const res = await request(app).get('/')
      expect(res.statusCode).toBe(200);
-     expect(res.text).toBe('Hello World!, Hi');
+     expect(res.text).toBe('Hello World!, server is up and running');
    })
 
    test('POST /add should return sum of two numbers', async() => {

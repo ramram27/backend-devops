@@ -12,6 +12,15 @@ app.get('/', (req, res) => {
     res.send('Hello World!, Hi');
 });
 
+app.post('/add', async(req,res) =>{
+    const {num1,num2} = req.body;
+
+    if(typeof num1 != 'number' || typeof num2 != 'number') {
+        return res.status(400).json({err:"Invalid input"});
+    }
+    res.json({result: num1 + num2});
+})
+
 
 module.exports = app;
 

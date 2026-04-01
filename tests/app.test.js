@@ -8,6 +8,13 @@ describe('Math API Tests', () => {
      expect(res.statusCode).toBe(200);
      expect(res.text).toBe('Hello World!, Hi');
    })
+
+   test('POST /add should return sum of two numbers', async() => {
+    const res = await request(app).post('/add')
+    .send({num1:5,num2:10})
+    expect(res.statusCode).toBe(200);
+    expect(res.body.result).toBe(15)
+   })
    
 });
 

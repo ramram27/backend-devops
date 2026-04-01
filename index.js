@@ -21,6 +21,15 @@ app.post('/add', async(req,res) =>{
     res.json({result: num1 + num2});
 })
 
+app.post('/register', async(req,res) =>{
+    const {name,rollNum,emailId,passwrd} = req.body;
+
+    if(!name || !rollNum || !emailId || !passwrd) {
+        return res.status(400).json({err:"All fields are required"});
+    }
+    res.json({data:{name,rollNum,emailId,passwrd}});
+})
+
 
 module.exports = app;
 

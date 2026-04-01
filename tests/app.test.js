@@ -15,6 +15,14 @@ describe('Math API Tests', () => {
     expect(res.statusCode).toBe(200);
     expect(res.body.result).toBe(15)
    })
+
+   test('POST / Regsiter data should retun', async()=>{
+    const res = await request(app).post('/register')
+    .send({name:"Rohit",rollNum:123,emailId:"rohit@gmail.com",passwrd:"12345"})
+    expect(res.statusCode).toBe(200);
+    expect(res.body.data).toEqual({name:"Rohit",rollNum:123,emailId:"rohit@gmail.com",passwrd:"12345"})
+
+   })
    
 });
 

@@ -9,7 +9,7 @@ console.log('Express app initialized');
 // Health check
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World!, server is up and running </h1>');
+    res.send('<h1>Hello World!, server is up and running</h1>');
 });
 
 app.post('/add', async(req,res) =>{

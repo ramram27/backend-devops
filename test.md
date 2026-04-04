@@ -4,6 +4,16 @@ npm install --save-dev jest supertest
 
 
 
+branch => develop branch
+2. stagging branch
+3. main production
+
+
+
+
+
+
+
 
 
 name: Docker CI
